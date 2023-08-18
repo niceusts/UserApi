@@ -14,7 +14,11 @@ namespace UserApi.Controllers
         {
             _userService = userService;
         }
-
+        /// <summary>
+        /// Cria um novo usuário.
+        /// </summary>
+        /// <param name="user">Dados do usuário a serem criados.</param>
+        /// <returns>O resultado da criação do usuário.</returns>
         [HttpPost]
         public IActionResult CreateUser(User user)
         {
