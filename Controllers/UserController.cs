@@ -1,13 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using UserApi.Models;
 using UserApi.Services;
-
+/// <summary>
+/// Controlador para gerenciamento de usuários.
+/// </summary>
 namespace UserApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
+        /// <summary>
+        /// Construtor do userController
+        /// </summary>
         private readonly UserService _userService;
 
         public UserController(UserService userService)
@@ -17,15 +22,15 @@ namespace UserApi.Controllers
         /// <summary>
         /// Cria um novo usuário.
         /// </summary>
-        /// <param name="user">Dados do usuário a serem criados.</param>
-        /// <returns>O resultado da criação do usuário.</returns>
         [HttpPost]
         public IActionResult CreateUser(User user)
         {
             _userService.AddUser(user);
             return Ok();
         }
-
+        /// <summary>
+        /// Pesquisar por usuário.
+        /// </summary>
         [HttpGet("{cpf}")]
         public IActionResult GetUser(int cpf)
         {
